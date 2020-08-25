@@ -1,20 +1,20 @@
 clusters = {
   kind_zero = {
     # Settings for Apps-cluster
-    apps = {
+    apps-prod = {
       name_prefix = "kind"
       base_domain = "infra.127.0.0.1.xip.io"
 
-      # clusters always have at least one control-plan node
-      # uncommenting extra_nodes below will give you a cluster
-      # with 3 control-plan nodes and 3 worker nodes
-      # extra_nodes = "control-plane,control-plane,worker,worker,worker"
+      extra_nodes = "control-plane,control-plane,worker,worker,worker"
+    }
+
+    apps-stage = {
+      extra_nodes = "worker,worker"
     }
 
     # Settings for Ops-cluster
     ops = {
-      # optionally reduce number of ops nodes
-      # extra_nodes = "worker"
+      extra_nodes = "worker"
     }
   }
 }
